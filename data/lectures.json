@@ -4,5 +4,12 @@
     "subjectId": "internal-medicine",
     "title": "المحاضرة 3و4",
     "htmlFile": "/lessons/003-shock-edema-pain.html"
+  },
+  {
+    "id": "66afe628-cfce-49ba-abde-6ebdb41e64f5",
+    "subjectId": "internal-medicine",
+    "title": "شرح المحاضره 3و4",
+    "sort": 2,
+    "pdfUrl": "https://drive.google.com/file/d/146pE3iTkXi0jqxRVH9Y6d4sJYkUJeIWB/view?usp=sharing"
   }
 ]
