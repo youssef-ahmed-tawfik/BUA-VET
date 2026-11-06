@@ -1,1 +1,102 @@
+media:
+  - name: lesson-html
+    label: ملفات شروحات HTML
+    input: lessons
+    output: /lessons
+    extensions: [html, htm]
+    rename: safe
+
+content:
+  - name: lectures
+    label: المحاضرات
+    type: file
+    path: data/lectures.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: المعرّف
+        type: uuid
+        hidden: true
+      - name: subjectId
+        label: المادة
+        type: select
+        required: true
+        options:
+          values:
+            - name: internal-medicine
+              label: الباطنة — Internal Medicine
+            - name: toxicology
+              label: السموم — Toxicology
+            - name: meat
+              label: اللحوم — Meat Hygiene and Inspection
+            - name: poultry
+              label: الدواجن — Poultry Diseases
+            - name: dairy
+              label: الألبان — Dairy Hygiene and Inspection
+            - name: infectious-diseases
+              label: الأمراض المعدية — Infectious Diseases
+            - name: transboundary-diseases
+              label: الأمراض العابرة للحدود — Transboundary Diseases
+      - name: title
+        label: عنوان المحاضرة
+        type: string
+        required: true
+        options:
+          maxlength: 140
+      - name: sort
+        label: الترتيب داخل المادة
+        type: number
+        options:
+          min: 0
+      - name: htmlFile
+        label: ملف الشرح HTML
+        type: file
+        options:
+          media: lesson-html
+          path: lessons
+          extensions: [html, htm]
+      - name: pdfUrl
+        label: رابط PDF في Google Drive
+        type: string
+      - name: links
+        label: روابط مصادر إضافية
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: اسم المصدر
+            type: string
+          - name: url
+            label: الرابط
+            type: string
+      - name: questions
+        label: أسئلة اختيار من متعدد
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{prompt}"
+        fields:
+          - name: prompt
+            label: نص السؤال
+            type: text
+            required: true
+          - name: options
+            label: الاختيارات (بحد أقصى 4)
+            type: string
+            list:
+              min: 2
+              max: 4
+          - name: answer
+            label: رقم الإجابة الصحيحة
+            type: select
+            options:
+              values: [1, 2, 3, 4]
+          - name: explanation
+            label: تفسير الإجابة (اختياري)
+            type: text
 
